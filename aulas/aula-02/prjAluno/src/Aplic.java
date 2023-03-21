@@ -39,14 +39,12 @@ public class Aplic {
             opcao = sc.nextInt();
             
             System.out.println();
+            System.out.println("RA: " + aluno.getRA());
             
             switch (opcao) {
                 case 1:
-                    System.out.println("Nota das provas");
                     System.out.println("Prova 1: " + aluno.getNotaProva1());
                     System.out.println("Prova 2: " + aluno.getNotaProva2());
-                    
-                    System.out.println("\nNota dos trabalhos");
                     System.out.println("Trabalho 1: " + aluno.getNotaTrab1());
                     System.out.println("Trabalho 2: " + aluno.getNotaTrab2());
                     break;
@@ -57,7 +55,15 @@ public class Aplic {
                     break;
                     
                 case 3:
-                    System.out.println("Média final: " + aluno.calcMediaFinal());
+                    double media = aluno.calcMediaFinal();
+                    System.out.printf("Média final: %.2f%n", media);
+                    
+                    if (media >= 6.0) {
+                        System.out.println("Situação: APROVADO");
+                    }
+                    else {
+                        System.out.println("Situação: REPROVADO");
+                    }
             }
         } while (opcao != 4);
         
