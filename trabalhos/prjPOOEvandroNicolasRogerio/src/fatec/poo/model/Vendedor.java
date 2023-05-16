@@ -15,20 +15,20 @@ public class Vendedor extends Pessoa {
         this.salarioBase = salarioBase;
     }
 
-    public double getSalarioBase() {
-        return salarioBase;
-    }
-
     public void setSalarioBase(double salarioBase) {
         this.salarioBase = salarioBase;
     }
 
-    public double getTaxaComissao() {
-        return taxaComissao;
-    }
-
     public void setTaxaComissao(double taxaComissao) {
         this.taxaComissao = taxaComissao / 100.0;
+    }
+
+    public double getSalarioBase() {
+        return salarioBase;
+    }
+
+    public double getTaxaComissao() {
+        return taxaComissao;
     }
 
     public List<Pedido> getPedidos() {

@@ -10,10 +10,16 @@ public class ItemPedido {
 
     public ItemPedido(int sequencia, double qtdeVendida, Produto produto) {
         this.sequencia = sequencia;
-        this.qtdeVendida = qtdeVendida;
         this.produto = produto;
         
-        // A quantidade vendida do item deve ser subtraída da quantidade disponível em estoque do objeto Produto que está ligado ao objeto ItemPedido.
+        // A quantidade vendida do item deve ser subtraída da quantidade disponível 
+        // em estoque do objeto Produto que está ligado ao objeto ItemPedido.      
+        setQtdeVendida(qtdeVendida);
+    }
+
+    public void setQtdeVendida(double qtdeVendida) {
+        produto.setQtdeEstoque(produto.getQtdeEstoque() + this.qtdeVendida);
+        this.qtdeVendida = qtdeVendida;
         produto.setQtdeEstoque(produto.getQtdeEstoque() - qtdeVendida);
     }
 
@@ -35,5 +41,9 @@ public class ItemPedido {
 
     public Produto getProduto() {
         return produto;
+    }
+
+    public void setProduto(Produto produto) {
+        this.produto = produto;
     }
 }

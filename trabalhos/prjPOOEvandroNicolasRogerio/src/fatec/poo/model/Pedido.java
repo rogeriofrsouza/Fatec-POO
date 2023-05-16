@@ -20,6 +20,18 @@ public class Pedido {
         this.dataEmissao = dataEmissao;
     }
 
+    public void setDataPagto(String dataPagto) {
+        this.dataPagto = dataPagto;
+    }
+
+    public void setFormaPagto(boolean formaPagto) {
+        this.formaPagto = formaPagto;
+    }
+
+    public void setSituacao(boolean situacao) {
+        this.situacao = situacao;
+    }
+
     public String getNumero() {
         return numero;
     }
@@ -32,24 +44,12 @@ public class Pedido {
         return dataPagto;
     }
 
-    public void setDataPagto(String dataPagto) {
-        this.dataPagto = dataPagto;
-    }
-
     public boolean getFormaPagto() {
         return formaPagto;
     }
 
-    public void setFormaPagto(boolean formaPagto) {
-        this.formaPagto = formaPagto;
-    }
-
     public boolean getSituacao() {
         return situacao;
-    }
-
-    public void setSituacao(boolean situacao) {
-        this.situacao = situacao;
     }
 
     public Cliente getCliente() {
@@ -76,7 +76,8 @@ public class Pedido {
         item.setPedido(this);
         itens.add(item);
         
-        // A cada ligação com um objeto ItemPedido o valor do item deve ser subtraído do limite disponível do objeto Cliente.
-        cliente.setLimiteDisp(cliente.getLimiteDisp() - item.getQtdeVendida());
+        // A cada ligação com um objeto ItemPedido o valor do item 
+        // deve ser subtraído do limite disponível do objeto Cliente.
+        cliente.setLimiteDisp(cliente.getLimiteDisp() - item.getQtdeVendida() * item.getProduto().getPreco());
     }
 }
